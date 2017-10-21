@@ -40,7 +40,11 @@ $(function () {
     $("#right").mouseover(function() {
         clearInterval(myInterval);
         setTimeout(startInterval(), 5000);
-        console.log("Hi");
+    });
+    
+    $("#left").mouseover(function() {
+        clearInterval(myInterval);
+        setTimeout(startInterval(), 5000);
     });
 
     $("#right").click(function() {
