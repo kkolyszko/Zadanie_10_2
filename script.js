@@ -1,9 +1,10 @@
 $(function () {
     var carouselList = $("#carousel ul");
     
+    var myInterval;
     
     function startInterval () {
-        var myInterval = setInterval(changeSlideRight, 3000);
+        myInterval = setInterval(changeSlideRight, 3000);
     };
     
     startInterval();
@@ -34,17 +35,15 @@ $(function () {
     
     function refreashInterval () {
         clearInterval(myInterval);
-        startInterval();
+        setTimeout(startInterval(), 5000);
     };
     
     $("#right").mouseover(function() {
-        clearInterval(myInterval);
-        setTimeout(startInterval(), 5000);
+        refreashInterval();
     });
     
     $("#left").mouseover(function() {
-        clearInterval(myInterval);
-        setTimeout(startInterval(), 5000);
+        refreashInterval();
     });
 
     $("#right").click(function() {
@@ -55,6 +54,7 @@ $(function () {
     $("#left").click(function() {
         changeSlideLeft();
         refreashInterval();
+
     });
     
 });
